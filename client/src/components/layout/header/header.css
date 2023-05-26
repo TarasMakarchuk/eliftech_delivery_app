@@ -5,13 +5,18 @@
     font-size: 22px;
 }
 
-.shop {
+.link-to-page {
     margin: 10px;
-    padding: 20px;
-    border-right: 1px solid lightgrey;
+    padding: 20px 40px 20px 20px;
     cursor: pointer;
+    text-decoration: none;
+    color: dimgray;
 }
 
-.shop:hover {
+.vertical-right-border {
+    border-right: 1px solid lightgrey;
+}
+
+.link-to-page:hover {
     color: dodgerblue;
 }

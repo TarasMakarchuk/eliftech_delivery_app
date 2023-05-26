@@ -1,10 +1,14 @@
 .good-card {
     margin: 20px;
-    width: 380px;
+    width: 370px;
     height: 280px;
     border: 1px solid lightgrey;
     border-radius: 7px;
     padding: 20px 0 20px 0;
+}
+
+.good-card:hover {
+    border: 1px solid gray;
 }
 
 .good-card > img {
@@ -37,7 +41,7 @@
     background-color: #e7e7e7;
     border-radius: 7px;
     margin-top: 10px;
-    margin-left: 180px;
+    margin-left: 170px;
     cursor: pointer;
     font-size: 16px;
 }
