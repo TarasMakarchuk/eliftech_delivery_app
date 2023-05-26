@@ -1,0 +1,9 @@
+.coupons {
+    margin: 10px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.coupons:hover {
+    color: dodgerblue;
+}

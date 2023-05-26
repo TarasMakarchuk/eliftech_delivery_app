@@ -1,0 +1,10 @@
+.cart {
+    margin: 10px;
+    padding: 20px;
+    border-right: 1px solid lightgrey;
+    cursor: pointer;
+}
+
+.cart:hover {
+    color: dodgerblue;
+}

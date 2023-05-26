@@ -1,0 +1,13 @@
+.layout, button {
+  font-family: 'Montserrat', sans-serif;
+  color: gray;
+  width: auto;
+  height: 100vh;
+  background: white;
+  margin: 0 40px 0 40px;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: row;
+}
