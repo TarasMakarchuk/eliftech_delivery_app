@@ -1,14 +1,12 @@
 import { FC } from 'react';
-import { Header } from './header/Header';
 import { Sidebar } from './sidebar/Sidebar';
 import { Content } from './content/Content';
-import './layout.css';
+import './homePage.css';
 
-const Layout: FC = () => {
+const HomePage: FC = () => {
 	return (
-		<div className='layout'>
+		<div className='home-page'>
 			<main>
-				<Header />
 				<div className='content-wrapper'>
 					<Sidebar />
 					<Content />
@@ -18,4 +16,4 @@ const Layout: FC = () => {
 	);
 };
 
-export default Layout;
+export default HomePage;
