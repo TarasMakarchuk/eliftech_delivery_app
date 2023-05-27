@@ -2,11 +2,14 @@ import { FC } from 'react';
 import { GoodItem } from './goodItem/GoodItem';
 import { useForm } from 'react-hook-form';
 import { Button } from '../../../ui/button/Button';
+import { useCart } from '../../../../hooks/useCart';
+import { formatToCurrency } from '../../../../utils/formatToCurrency';
 import './cart.css';
 
 export const Cart: FC = () => {
 	const { register, handleSubmit } = useForm();
 	const onSubmit = (data: any) => alert(JSON.stringify(data));
+	const { cart, total } = useCart();
 
 	return (
 		<>
@@ -54,19 +57,20 @@ export const Cart: FC = () => {
 				</div>
 				<div className='order-container'>
 					<div className='goods-information'>
-						<GoodItem />
-						<GoodItem />
-						<GoodItem />
-						<GoodItem />
-						<GoodItem />
-						<GoodItem />
-						<GoodItem />
-						<GoodItem />
+						{cart.map(good => (
+							<GoodItem
+								good={good.good}
+								quantity={good.quantity}
+								key={good.id}
+							/>
+						))}
 					</div>
 				</div>
 			</div>
 			<div className='submit-card'>
-				<span className='total-price'>Total Price: 99,98$</span>
+				<span className='total-price'>
+					Total Price: {formatToCurrency(total)}
+				</span>
 				<Button title='Place order' onClick={handleSubmit(onSubmit)} />
 			</div>
 		</>
