@@ -1,18 +1,19 @@
 import { FC } from 'react';
+import { Button } from '../../../ui/button/Button';
+import { IGood } from '../../../../types/good.interface';
 import './goodCard.css';
 
-export const GoodCard: FC = () => {
+export const GoodCard: FC<{ good: IGood }> = ({ good }) => {
 	return (
 		<div className='good-card'>
-			<img
-				src='https://s7d1.scene7.com/is/image/mcdonalds/mcdonalds-Big-Mac-2:product-header-desktop?wid=829&hei=455&dpr=off'
-				alt=''
-			/>
+			<img src={good.img} alt={good.img} />
 			<div className='good-information'>
-				<h1 className='good-title'>Big Mak</h1>
-				<p className='good-price'>Price 1,59$</p>
+				<h1 className='good-title'>{good.name}</h1>
+				<p className='good-price'>Price {good.price}</p>
 			</div>
-			<button className='add-cart-button'>Add to Cart</button>
+			<Button title='Add To Cart' />
+
+			{/*<button className='add-cart-button'>Add to Cart</button>*/}
 		</div>
 	);
 };

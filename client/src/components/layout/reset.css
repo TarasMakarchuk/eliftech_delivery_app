@@ -58,7 +58,7 @@ button {
   outline: none;
 }
 
-img {
+img, a {
   -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
