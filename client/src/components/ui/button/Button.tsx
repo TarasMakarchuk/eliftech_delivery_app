@@ -3,7 +3,7 @@ import './button.css';
 
 interface IButton {
 	title: string;
-	onClick: (event: React.MouseEvent<HTMLElement>) => void;
+	onClick: (event: any) => void;
 }
 
 export const Button: FC<IButton> = ({ title, onClick }) => {

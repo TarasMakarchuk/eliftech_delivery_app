@@ -1,28 +1,60 @@
 import { FC } from 'react';
+import { IGood } from '../../../../../types/good.interface';
+import { formatToCurrency } from '../../../../../utils/formatToCurrency';
+import { useActions } from '../../../../../hooks/useActions';
 import './goodItem.css';
 
-export const GoodItem: FC = () => {
+export const GoodItem: FC<{ good: IGood; quantity: number }> = ({
+	good,
+	quantity,
+}) => {
+	const { removeFromCart, changeQuantity } = useActions();
+
 	return (
 		<>
 			<div className='good-item-card'>
 				<div className='image-container'>
-					<img
-						src='https://s7d1.scene7.com/is/image/mcdonalds/mcdonalds-Big-Mac-2:product-header-desktop?wid=829&hei=455&dpr=off'
-						alt=''
-					/>
+					<img src={good.img} alt={good.name} />
 				</div>
 				<div className='good-information-container'>
-					<p className='good-title'>Big Mak</p>
-					<p className='good-price'>Price: 1,29$</p>
-					<input
-						className='good-quantity-choose'
-						type='number'
-						id='tentacles'
-						name='tentacles'
-						min='1'
-						max='100'
-						defaultValue='1'
-					/>
+					<p className='good-item-title'>{good.name}</p>
+					<p className='good-item-price'>
+						Price: {formatToCurrency(good.price)}
+					</p>
+
+					<div className='good-quantity-block'>
+						<button
+							className='decrease-button'
+							onClick={() => changeQuantity({ id: good.id, type: 'decrease' })}
+						>
+							-
+						</button>
+
+						<input
+							onChange={() => {}}
+							className='good-quantity-choose'
+							id='tentacles'
+							name='tentacles'
+							min='1'
+							max='100'
+							value={quantity}
+						/>
+						<button
+							className='increase-button'
+							onClick={() => changeQuantity({ id: good.id, type: 'increase' })}
+						>
+							+
+						</button>
+					</div>
+					<span className='subtotal-price'>
+						Subtotal Price: {formatToCurrency(good.price * quantity)}
+					</span>
+					<button
+						className='remove-button'
+						onClick={() => removeFromCart({ id: good.id })}
+					>
+						Remove
+					</button>
 				</div>
 			</div>
 		</>
