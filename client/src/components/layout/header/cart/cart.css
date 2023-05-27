@@ -5,7 +5,7 @@
 }
 
 .contact-container {
-    height: 65vh;
+    min-height: 65vh;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -15,7 +15,7 @@
 
 .google-map {
     width: 75vh;
-    height: 250px;
+    height: 150px;
     padding: 20px;
     margin: 0 20px 20px 20px;
     background-color: lightgreen;
@@ -41,12 +41,37 @@
     margin-bottom: 10px;
 }
 
-.submit-container {
+.submit-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.submit-card {
     padding-top: 20px;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
+}
+
+.input-filed {
+    width: 75vh;
+    height: 15px;
+    padding: 7px;
+    margin: 20px 20px 20px 0;
+    outline: none;
+    font-size: 16px;
+    border-radius: 3px;
+    border: 1px solid gray;
+}
+
+.contact-label {
+    text-align: start;
+    align-items: start;
+    font-size: 12px;
+    padding-left: 20px;
+    padding-top: 5px;
+    line-height: 1px;
 }
 
 .total-price {
