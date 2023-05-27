@@ -20,3 +20,20 @@
 .link-to-page:hover {
     color: dodgerblue;
 }
+
+.goods-quantity {
+    position: absolute;
+    top: 14px;
+    left: 341px;
+    text-align: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
+    border: 1px solid white;
+    color: white;
+    margin-left: 10px;
+    padding: 7px 5px 4px 5px;
+    font-size: 16px;
+}

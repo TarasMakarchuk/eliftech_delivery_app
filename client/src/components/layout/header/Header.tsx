@@ -10,6 +10,7 @@ export const Header: FC = () => {
 			</Link>
 			<Link to='/cart' className='link-to-page vertical-right-border'>
 				Shopping Cart
+				<div className='goods-quantity'>10</div>
 			</Link>
 			<Link to='/history' className='link-to-page vertical-right-border'>
 				History
