@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { GoodItem } from './goodItem/GoodItem';
 import { useForm } from 'react-hook-form';
-import { Button } from '../../../ui/button/Button';
-import { useCart } from '../../../../hooks/useCart';
-import { formatToCurrency } from '../../../../utils/formatToCurrency';
+import { Button } from 'src/components/ui/button/Button';
+import { useCart } from 'src/hooks/useCart';
+import { formatToCurrency } from 'src/utils/formatToCurrency';
 import './cart.css';
 
 export const Cart: FC = () => {

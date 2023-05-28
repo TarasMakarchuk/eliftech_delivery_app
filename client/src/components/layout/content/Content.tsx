@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { GoodCard } from './goodCard/GoodCard';
-import { IGood } from '../../../types/good.interface';
-import { useShop } from '../../../hooks/useShop';
+import { IGood } from 'src/types/good.interface';
+import { useShop } from 'src/hooks/useShop';
 import './content.css';
 
 export const Content: FC<{ goods: IGood[] }> = ({ goods }) => {

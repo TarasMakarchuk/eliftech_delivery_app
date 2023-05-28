@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { IGood } from '../../../../../types/good.interface';
-import { formatToCurrency } from '../../../../../utils/formatToCurrency';
-import { useActions } from '../../../../../hooks/useActions';
+import { IGood } from 'src/types/good.interface';
+import { useActions } from 'src/hooks/useActions';
+import { formatToCurrency } from 'src/utils/formatToCurrency';
 import './goodItem.css';
 
 export const GoodItem: FC<{ good: IGood; quantity: number }> = ({

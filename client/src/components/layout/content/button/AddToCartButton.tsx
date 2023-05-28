@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { IGood } from '../../../../types/good.interface';
-import { useCart } from '../../../../hooks/useCart';
-import { useActions } from '../../../../hooks/useActions';
+import { IGood } from 'src/types/good.interface';
+import { useCart } from 'src/hooks/useCart';
+import { useActions } from 'src/hooks/useActions';
 
 interface IAddToCartButton {
 	good: IGood;

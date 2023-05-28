@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { IShop } from '../../../../types/shop.interface';
-import { useActions } from '../../../../hooks/useActions';
+import { IShop } from 'src/types/shop.interface';
+import { useActions } from 'src/hooks/useActions';
 import './shopCard.css';
 
 export const ShopCard: FC<{ shop: IShop }> = ({ shop }) => {
