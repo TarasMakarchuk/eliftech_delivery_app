@@ -6,6 +6,7 @@ import { useCart } from 'src/hooks/useCart';
 import { formatToCurrency } from 'src/utils/formatToCurrency';
 import { roundPrice } from 'src/utils/roundPrice';
 import { CartService } from 'src/api/services/cartService';
+import { DeliveryMap } from 'src/components/layout/header/cart/deliveryMap/DeliveryMap';
 import './cart.css';
 
 export const Cart: FC = () => {
@@ -29,7 +30,9 @@ export const Cart: FC = () => {
 		<>
 			<div className='cart'>
 				<div className='contact-container'>
-					<div className='google-map'></div>
+					<div className='delivery-map-container'>
+						<DeliveryMap />
+					</div>
 					<form className='submit-form' onSubmit={handleSubmit(onSubmit)}>
 						<label className='contact-label'>
 							Full Name
@@ -46,7 +49,7 @@ export const Cart: FC = () => {
 								className='input-filed'
 								type='text'
 								{...register('email')}
-								placeholder='Email address'
+								placeholder='Email'
 							/>
 						</label>
 						<label className='contact-label'>
@@ -55,7 +58,7 @@ export const Cart: FC = () => {
 								className='input-filed'
 								type='text'
 								{...register('phone')}
-								placeholder='Full name'
+								placeholder='Phone'
 							/>
 						</label>
 						<label className='contact-label'>
@@ -64,7 +67,7 @@ export const Cart: FC = () => {
 								className='input-filed'
 								type='text'
 								{...register('shippingAddress')}
-								placeholder='Shipping address'
+								placeholder='Zip code, city, street, building number, apartment number, entrance code'
 							/>
 						</label>
 					</form>
