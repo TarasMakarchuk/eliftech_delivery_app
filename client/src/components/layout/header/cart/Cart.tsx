@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { GoodItem } from './goodItem/GoodItem';
+import { GoodsItem } from './goodItem/GoodsItem';
 import { useForm } from 'react-hook-form';
 import { Button } from 'src/components/ui/button/Button';
 import { useCart } from 'src/hooks/useCart';
@@ -74,11 +74,11 @@ export const Cart: FC = () => {
 				</div>
 				<div className='order-container'>
 					<div className='goods-information'>
-						{cart.map(good => (
-							<GoodItem
-								good={good.good}
-								quantity={good.quantity}
-								key={good.id}
+						{cart.map(goods => (
+							<GoodsItem
+								goods={goods.goods}
+								quantity={goods.quantity}
+								key={goods.id}
 							/>
 						))}
 					</div>
