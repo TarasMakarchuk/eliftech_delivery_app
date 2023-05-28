@@ -1,11 +1,11 @@
 import { FC } from 'react';
-import { IGood } from 'src/types/good.interface';
+import { IGoods } from 'src/types/goods.interface';
 import { useActions } from 'src/hooks/useActions';
 import { formatToCurrency } from 'src/utils/formatToCurrency';
-import './goodItem.css';
+import './goodsItem.css';
 
-export const GoodItem: FC<{ good: IGood; quantity: number }> = ({
-	good,
+export const GoodsItem: FC<{ goods: IGoods; quantity: number }> = ({
+	goods,
 	quantity,
 }) => {
 	const { removeFromCart, changeQuantity } = useActions();
@@ -14,18 +14,18 @@ export const GoodItem: FC<{ good: IGood; quantity: number }> = ({
 		<>
 			<div className='good-item-card'>
 				<div className='image-container'>
-					<img src={good.img} alt={good.name} />
+					<img src={goods.img} alt={goods.name} />
 				</div>
 				<div className='good-information-container'>
-					<p className='good-item-title'>{good.name}</p>
+					<p className='good-item-title'>{goods.name}</p>
 					<p className='good-item-price'>
-						Price: {formatToCurrency(good.price)}
+						Price: {formatToCurrency(goods.price)}
 					</p>
 
 					<div className='good-quantity-block'>
 						<button
 							className='decrease-button'
-							onClick={() => changeQuantity({ id: good.id, type: 'decrease' })}
+							onClick={() => changeQuantity({ id: goods.id, type: 'decrease' })}
 						>
 							-
 						</button>
@@ -41,17 +41,17 @@ export const GoodItem: FC<{ good: IGood; quantity: number }> = ({
 						/>
 						<button
 							className='increase-button'
-							onClick={() => changeQuantity({ id: good.id, type: 'increase' })}
+							onClick={() => changeQuantity({ id: goods.id, type: 'increase' })}
 						>
 							+
 						</button>
 					</div>
 					<span className='subtotal-price'>
-						Subtotal Price: {formatToCurrency(good.price * quantity)}
+						Subtotal Price: {formatToCurrency(goods.price * quantity)}
 					</span>
 					<button
 						className='remove-button'
-						onClick={() => removeFromCart({ id: good.id })}
+						onClick={() => removeFromCart({ id: goods.id })}
 					>
 						Remove
 					</button>

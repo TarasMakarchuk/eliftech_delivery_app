@@ -1,4 +1,4 @@
-export interface IGood {
+export interface IGoods {
 	id: number;
 	shopId: number;
 	name: string;

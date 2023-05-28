@@ -1,17 +1,17 @@
 import { FC } from 'react';
-import { IGood } from 'src/types/good.interface';
+import { IGoods } from 'src/types/goods.interface';
 import { useCart } from 'src/hooks/useCart';
 import { useActions } from 'src/hooks/useActions';
 
 interface IAddToCartButton {
-	good: IGood;
+	goods: IGoods;
 }
 
-export const AddToCartButton: FC<IAddToCartButton> = ({ good }) => {
+export const AddToCartButton: FC<IAddToCartButton> = ({ goods }) => {
 	const { addToCart, removeFromCart } = useActions();
 	const { cart } = useCart();
 
-	const currentElement = cart.find(cartItem => cartItem.good.id === good.id);
+	const currentElement = cart.find(cartItem => cartItem.goods.id === goods.id);
 
 	return (
 		<button
@@ -19,7 +19,7 @@ export const AddToCartButton: FC<IAddToCartButton> = ({ good }) => {
 				currentElement
 					? removeFromCart({ id: currentElement.id })
 					: addToCart({
-							good,
+							goods,
 							quantity: 0,
 					  })
 			}

@@ -1,7 +1,7 @@
-import { IGood } from './good.interface';
+import { IGoods } from './goods.interface';
 
 export interface ICartItem {
 	id: number;
-	good: IGood;
+	goods: IGoods;
 	quantity: number;
 }
