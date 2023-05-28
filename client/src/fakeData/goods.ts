@@ -1,6 +1,6 @@
-import { IGood } from '../types/good.interface';
+import { IGoods } from '../types/goods.interface';
 
-export const goods: IGood[] = [
+export const goods: IGoods[] = [
 	{
 		id: 1,
 		shopId: 1,

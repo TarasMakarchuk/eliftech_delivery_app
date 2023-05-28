@@ -1,4 +1,4 @@
-.good-card {
+.goods-card {
     margin: 20px;
     width: 370px;
     height: 300px;
@@ -7,30 +7,30 @@
     padding: 20px 0 20px 0;
 }
 
-.good-card:hover {
+.goods-card:hover {
     border: 1px solid gray;
 }
 
-.good-card > img {
+.goods-card > img {
     width: 150px;
     height: 150px;
     display: block;
     margin: 0 auto;
 }
 
-.good-information {
+.goods-information {
     text-align: start;
     height: 92px;
 }
 
-.good-title {
+.goods-title {
     padding-top: 20px;
     margin-left: 20px;
     font-size: 20px;
     font-weight: 700;
 }
 
-.good-price {
+.goods-price {
     padding-top: 15px;
     margin-left: 20px;
     text-align: start;

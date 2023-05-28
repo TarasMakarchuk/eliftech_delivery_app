@@ -14,7 +14,7 @@ export const cartSlice = createSlice({
 	initialState,
 	reducers: {
 		addToCart: (state, action: PayloadAction<IAddCartPayload>) => {
-			state.items.push({ ...action.payload, id: action.payload.good.id });
+			state.items.push({ ...action.payload, id: action.payload.goods.id });
 			state.items.forEach(item => (item.quantity = 1));
 		},
 

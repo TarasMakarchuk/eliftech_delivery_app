@@ -1,4 +1,4 @@
-import { IGood } from 'src/types/good.interface';
+import { IGoods } from 'src/types/goods.interface';
 
 export interface IOrder {
 	id: number;
@@ -7,5 +7,5 @@ export interface IOrder {
 	phone: string;
 	shippingAddress: string;
 	total: number;
-	items: IGood[];
+	items: IGoods[];
 }
