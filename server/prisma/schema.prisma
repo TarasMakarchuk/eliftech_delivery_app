@@ -10,7 +10,7 @@ datasource db {
 model Shop {
   id        Int      @id @default(autoincrement())
   name      String
-  img       String
+  img       String?
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @default(now()) @map("updated_at")
   goods     Goods[]
@@ -21,13 +21,12 @@ model Goods {
   shopId    Int      @map("shop_id")
   name      String
   price     Float
-  orderId   Int?     @map("order_id")
   img       String?
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @default(now()) @map("updated_at")
+  orderId   Int?     @map("order_id")
 
-  Shop  Shop   @relation(fields: [shopId], references: [id])
-  Order Order? @relation(fields: [orderId], references: [id])
+  Shop Shop @relation(fields: [shopId], references: [id])
 }
 
 model Order {
@@ -37,6 +36,6 @@ model Order {
   phone           String
   shippingAddress String   @map("shipping_address")
   total           Float
-  items           Goods[]
   createdAt       DateTime @default(now()) @map("created_at")
+  items           String
 }
