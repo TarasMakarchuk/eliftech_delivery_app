@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { Sidebar } from './sidebar/Sidebar';
 import { Content } from './content/Content';
-import { shops } from '../../fakeData/shops';
-import { goods } from '../../fakeData/goods';
+import { shops } from 'src/fakeData/shops';
+import { goods } from 'src/fakeData/goods';
 import './homePage.css';
 
 const HomePage: FC = () => {

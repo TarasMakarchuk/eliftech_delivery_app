@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { IGood } from '../../../../types/good.interface';
-import { formatToCurrency } from '../../../../utils/formatToCurrency';
+import { IGood } from 'src/types/good.interface';
+import { formatToCurrency } from 'src/utils/formatToCurrency';
 import { AddToCartButton } from '../button/AddToCartButton';
 import './goodCard.css';
 

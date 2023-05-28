@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { ShopCard } from './shopCard/ShopCard';
-import { IShop } from '../../../types/shop.interface';
+import { IShop } from 'src/types/shop.interface';
 import './sidebar.css';
 
 export const Sidebar: FC<{ shops: IShop[] }> = ({ shops }) => {

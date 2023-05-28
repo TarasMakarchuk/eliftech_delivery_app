@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { useCart } from '../../../hooks/useCart';
+import { useCart } from 'src/hooks/useCart';
 import './header.css';
 
 export const Header: FC = () => {
