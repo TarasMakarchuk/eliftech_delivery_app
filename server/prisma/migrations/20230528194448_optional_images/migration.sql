@@ -1,0 +1,5 @@
+-- AlterTable
+ALTER TABLE "Goods" ALTER COLUMN "img" DROP NOT NULL;
+
+-- AlterTable
+ALTER TABLE "Shop" ALTER COLUMN "img" DROP NOT NULL;
