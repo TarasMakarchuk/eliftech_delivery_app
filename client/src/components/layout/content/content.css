@@ -1,0 +1,31 @@
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: flex-start;
+    margin-left: 30px;
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 7px;
+    padding: 20px;
+    height: 80vh;
+    min-width: 135vh;
+    overflow-y: auto;
+}
+
+.content::-webkit-scrollbar {
+    width: 5px;
+}
+
+.content::-webkit-scrollbar {
+    background: #f1f1f1;
+}
+
+.content::-webkit-scrollbar-thumb {
+    background: lightgrey;
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

@@ -1,0 +1,39 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    font-size: 22px;
+}
+
+.link-to-page {
+    margin: 10px;
+    padding: 20px 40px 20px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: dimgray;
+}
+
+.vertical-right-border {
+    border-right: 1px solid lightgrey;
+}
+
+.link-to-page:hover {
+    color: dodgerblue;
+}
+
+.goods-quantity {
+    position: absolute;
+    top: 14px;
+    left: 341px;
+    text-align: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
+    border: 1px solid white;
+    color: white;
+    margin-left: 10px;
+    padding: 8px 5px 3px 5px;
+    font-size: 16px;
+}

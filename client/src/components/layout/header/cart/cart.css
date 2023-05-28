@@ -1,0 +1,98 @@
+.cart {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.contact-container {
+    min-height: 65vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid lightgrey;
+    border-radius: 7px;
+}
+
+.delivery-map-container {
+    width: 77vh;
+    height: 150px;
+    margin: 0 20px 20px 20px;
+    background-color: lightgreen;
+    border-radius: 7px;
+    border: 1px solid lightgrey;
+}
+
+.order-container {
+    width: 80%;
+    height: 65vh;
+    padding: 30px 80px 30px 50px;
+    border-radius: 7px;
+    border: 1px solid lightgrey;
+    margin-left: 40px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.good-order {
+    width: 100%;
+    height: 150px;
+    background-color: lightgreen;
+    border-radius: 7px;
+    margin-bottom: 10px;
+}
+
+.submit-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.submit-card {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.input-filed {
+    width: 75vh;
+    height: 15px;
+    padding: 7px;
+    margin: 20px 20px 20px 0;
+    outline: none;
+    font-size: 16px;
+    border-radius: 3px;
+    border: 1px solid gray;
+}
+
+.contact-label {
+    text-align: start;
+    align-items: start;
+    font-size: 12px;
+    padding-left: 20px;
+    padding-top: 5px;
+    line-height: 1px;
+}
+
+.total-price {
+    padding-top: 7px;
+    font-size: 22px;
+    font-weight: 700;
+    color: darkgray;
+}
+
+.order-container::-webkit-scrollbar {
+    width: 5px;
+}
+
+.order-container::-webkit-scrollbar {
+    background: #f1f1f1;
+}
+
+.order-container::-webkit-scrollbar-thumb {
+    background: lightgrey;
+}
+
+.order-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

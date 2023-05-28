@@ -1,0 +1,53 @@
+.good-card {
+    margin: 20px;
+    width: 370px;
+    height: 300px;
+    border: 1px solid lightgrey;
+    border-radius: 7px;
+    padding: 20px 0 20px 0;
+}
+
+.good-card:hover {
+    border: 1px solid gray;
+}
+
+.good-card > img {
+    width: 150px;
+    height: 150px;
+    display: block;
+    margin: 0 auto;
+}
+
+.good-information {
+    text-align: start;
+    height: 92px;
+}
+
+.good-title {
+    padding-top: 20px;
+    margin-left: 20px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.good-price {
+    padding-top: 15px;
+    margin-left: 20px;
+    text-align: start;
+}
+
+.add-cart-button {
+    width: 180px;
+    height: 50px;
+    background-color: #e7e7e7;
+    border-radius: 7px;
+    margin-top: 10px;
+    margin-left: 170px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.add-cart-button:hover {
+    background-color: lightgreen;
+    color: green;
+}
