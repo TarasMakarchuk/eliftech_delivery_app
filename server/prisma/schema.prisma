@@ -20,9 +20,9 @@ model Goods {
   id        Int      @id @default(autoincrement())
   shopId    Int      @map("shop_id")
   name      String
-  price     Int
+  price     Float
   orderId   Int?     @map("order_id")
-  img       String
+  img       String?
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @default(now()) @map("updated_at")
 
@@ -36,7 +36,7 @@ model Order {
   email           String
   phone           String
   shippingAddress String   @map("shipping_address")
-  total           Int
+  total           Float
   items           Goods[]
   createdAt       DateTime @default(now()) @map("created_at")
 }

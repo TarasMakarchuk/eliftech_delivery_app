@@ -12,7 +12,11 @@ export class GoodsService {
   }
 
   findAll() {
-    return this.prisma.goods.findMany();
+    return this.prisma.shop.findMany({
+      include: {
+        goods: true,
+      },
+    });
   }
 
   findOne(id: number) {
