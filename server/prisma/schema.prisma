@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Shop {
+  id        Int      @id @default(autoincrement())
+  name      String
+  img       String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @map("updated_at")
+  goods     Goods[]
+}
+
+model Goods {
+  id        Int      @id @default(autoincrement())
+  shopId    Int      @map("shop_id")
+  name      String
+  price     Int
+  orderId   Int?     @map("order_id")
+  img       String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @map("updated_at")
+
+  Shop  Shop   @relation(fields: [shopId], references: [id])
+  Order Order? @relation(fields: [orderId], references: [id])
+}
+
+model Order {
+  id              Int      @id @default(autoincrement())
+  fullName        String   @map("full_name")
+  email           String
+  phone           String
+  shippingAddress String   @map("shipping_address")
+  total           Int
+  items           Goods[]
+  createdAt       DateTime @default(now()) @map("created_at")
+}

@@ -12,12 +12,16 @@
 ![](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)
 
 
-### This is an online store, based on React.js, Nest.js and Prisma like Glovo. Which allows you to order and arrange delivery of products to the specified address.
+### This is an online delivery application like Glovo, which allows you to order and arrange delivery of products to the specified address.
+### The technologies used are React.js, Redux.js, Nest.js, Prisma, PostgreSQL.
+
 ___
 
-### `🎨` Design ideas for this project were taken from here https://dribbble.com
+`🎨` Design ideas for this project were taken from https://dribbble.com
 
-### Installation npm modules on the Client and the Server`☕`
+### To launch the app you should:
+
+### Install npm modules on the Client and the Server`☕`
 ```bash
 $ cd client
 $ npm install
@@ -37,7 +41,7 @@ ___
 ```
 ___
 
-### Running the app on the Client`🚀`
+### Run the app on the Client`🚀`
 ```bash
 
 # development mode
@@ -48,7 +52,7 @@ $ npm run start
 ```
 ______
 
-### Running the app on the Server`🏃`
+### Run the app on the Server`🏃`
 ```bash
 
 # development mode
