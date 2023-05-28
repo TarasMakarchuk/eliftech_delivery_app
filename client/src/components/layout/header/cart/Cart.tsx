@@ -1,15 +1,23 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { GoodItem } from './goodItem/GoodItem';
 import { useForm } from 'react-hook-form';
 import { Button } from 'src/components/ui/button/Button';
 import { useCart } from 'src/hooks/useCart';
 import { formatToCurrency } from 'src/utils/formatToCurrency';
+import { roundPrice } from 'src/utils/roundPrice';
 import './cart.css';
 
 export const Cart: FC = () => {
 	const { register, handleSubmit } = useForm();
-	const onSubmit = (data: any) => alert(JSON.stringify(data));
 	const { cart, total } = useCart();
+
+	const onSubmit = (data: any) => {
+		console.log({
+			...data,
+			items: cart,
+			total: roundPrice(total),
+		});
+	};
 
 	return (
 		<>
