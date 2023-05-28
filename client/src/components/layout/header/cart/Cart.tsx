@@ -5,6 +5,7 @@ import { Button } from 'src/components/ui/button/Button';
 import { useCart } from 'src/hooks/useCart';
 import { formatToCurrency } from 'src/utils/formatToCurrency';
 import { roundPrice } from 'src/utils/roundPrice';
+import { CartService } from 'src/api/services/cartService';
 import './cart.css';
 
 export const Cart: FC = () => {
@@ -13,6 +14,11 @@ export const Cart: FC = () => {
 
 	const onSubmit = (data: any) => {
 		console.log({
+			...data,
+			items: cart,
+			total: roundPrice(total),
+		});
+		return CartService.placeOrder({
 			...data,
 			items: cart,
 			total: roundPrice(total),
