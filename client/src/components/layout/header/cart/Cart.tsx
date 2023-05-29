@@ -11,7 +11,11 @@ import { useActions } from 'src/hooks/useActions';
 import './cart.css';
 
 export const Cart: FC = () => {
-	const { register, handleSubmit } = useForm();
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm();
 	const { cart, total } = useCart();
 	const { resetCart } = useActions();
 
@@ -33,38 +37,56 @@ export const Cart: FC = () => {
 					</div>
 					<form className='submit-form' onSubmit={handleSubmit(onSubmit)}>
 						<label className='contact-label'>
-							Full Name
+							{errors.fullName && errors.fullName.type === 'required' ? (
+								<span style={{ color: 'red' }}>Field is required</span>
+							) : (
+								'Full Name'
+							)}
 							<input
 								className='input-filed'
 								type='text'
-								{...register('fullName')}
+								{...register('fullName', { required: true })}
 								placeholder='Full name'
 							/>
 						</label>
+
 						<label className='contact-label'>
-							Email address
+							{errors.email && errors.email.type === 'required' ? (
+								<span style={{ color: 'red' }}>Field is required</span>
+							) : (
+								'Email address'
+							)}
 							<input
 								className='input-filed'
 								type='text'
-								{...register('email')}
+								{...register('email', { required: true })}
 								placeholder='Email'
 							/>
 						</label>
 						<label className='contact-label'>
-							Phone number
+							{errors.phone && errors.phone.type === 'required' ? (
+								<span style={{ color: 'red' }}>Field is required</span>
+							) : (
+								'Phone number'
+							)}
 							<input
 								className='input-filed'
 								type='text'
-								{...register('phone')}
+								{...register('phone', { required: true })}
 								placeholder='Phone'
 							/>
 						</label>
 						<label className='contact-label'>
-							Shipping address
+							{errors.shippingAddress &&
+							errors.shippingAddress.type === 'required' ? (
+								<span style={{ color: 'red' }}>Field is required</span>
+							) : (
+								'Shipping address'
+							)}
 							<input
 								className='input-filed'
 								type='text'
-								{...register('shippingAddress')}
+								{...register('shippingAddress', { required: true })}
 								placeholder='Zip code, city, street, building number, apartment number, entrance code'
 							/>
 						</label>
