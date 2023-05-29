@@ -11,9 +11,11 @@ async function bootstrap() {
   await prismaService.enableShutdownHooks(app);
 
   app.setGlobalPrefix('api');
+  app.enableCors();
 
   await app.listen(PORT, () => {
     Logger.log(`http://localhost:${PORT}`, `Server start on host`);
   });
 }
+
 bootstrap();
