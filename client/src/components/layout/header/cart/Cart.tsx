@@ -7,21 +7,19 @@ import { formatToCurrency } from 'src/utils/formatToCurrency';
 import { roundPrice } from 'src/utils/roundPrice';
 import { CartService } from 'src/api/services/cartService';
 import { DeliveryMap } from 'src/components/layout/header/cart/deliveryMap/DeliveryMap';
+import { useActions } from 'src/hooks/useActions';
 import './cart.css';
 
 export const Cart: FC = () => {
 	const { register, handleSubmit } = useForm();
 	const { cart, total } = useCart();
+	const { resetCart } = useActions();
 
 	const onSubmit = (data: any) => {
-		console.log({
-			...data,
-			items: cart,
-			total: roundPrice(total),
-		});
+		resetCart();
 		return CartService.placeOrder({
 			...data,
-			items: cart,
+			items: JSON.stringify(cart),
 			total: roundPrice(total),
 		});
 	};
