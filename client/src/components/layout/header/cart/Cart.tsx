@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { GoodsItem } from './goodItem/GoodsItem';
 import { useForm } from 'react-hook-form';
 import { Button } from 'src/components/ui/button/Button';
@@ -8,28 +8,55 @@ import { roundPrice } from 'src/utils/roundPrice';
 import { CartService } from 'src/api/services/cartService';
 import { DeliveryMap } from 'src/components/layout/header/cart/deliveryMap/DeliveryMap';
 import { useActions } from 'src/hooks/useActions';
+import { OrderNotification } from 'src/components/layout/header/cart/orderNotification/OrderNotification';
+import { ICartItem } from 'src/types/cart-item.interface';
 import './cart.css';
+
+type OrderSubmitForm = {
+	fullName: string;
+	email: string;
+	phone: string;
+	shippingAddress: string;
+};
 
 export const Cart: FC = () => {
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
-	} = useForm();
+		reset,
+	} = useForm<OrderSubmitForm>();
 	const { cart, total } = useCart();
 	const { resetCart } = useActions();
 
-	const onSubmit = (data: any) => {
+	const [showNotification, setShowNotification] = useState<string>('none');
+
+	const closeNotificationHandler = () => setShowNotification('none');
+
+	const goods = cart.map((goods: ICartItem) => {
+		const { id, shopId, name, price } = goods.goods;
+		const { quantity } = goods;
+		return { id, shopId, name, price, quantity };
+	});
+
+	const onSubmit = (data: OrderSubmitForm) => {
 		resetCart();
+		reset();
+		setShowNotification('block');
+
 		return CartService.placeOrder({
 			...data,
-			items: JSON.stringify(cart),
+			items: JSON.stringify(goods),
 			total: roundPrice(total),
 		});
 	};
 
 	return (
 		<>
+			<OrderNotification
+				display={showNotification}
+				onClose={closeNotificationHandler}
+			/>
 			<div className='cart'>
 				<div className='contact-container'>
 					<div className='delivery-map-container'>
