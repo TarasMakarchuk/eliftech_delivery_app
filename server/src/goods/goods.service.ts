@@ -14,6 +14,10 @@ export class GoodsService {
   }
 
   findAll() {
+    return this.prisma.goods.findMany();
+  }
+
+  findAllWithShopRelation() {
     return this.prisma.shop.findMany({
       include: {
         goods: true,
