@@ -12,10 +12,12 @@ import {
 } from 'redux-persist';
 import { shopSlice } from './shop/shop.slice';
 import { cartSlice } from './cart/cart.slice';
+import { goodsSlice } from 'src/store/goods/goods.slice';
 
 const rootReducer = combineReducers({
 	cart: cartSlice.reducer,
 	shop: shopSlice.reducer,
+	goods: goodsSlice.reducer,
 });
 
 const persistConfig = {

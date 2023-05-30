@@ -17,6 +17,11 @@ export class GoodsController {
     return this.goodsService.findAll();
   }
 
+  @Get('shop-relations')
+  findAllWithShopRelation() {
+    return this.goodsService.findAllWithShopRelation();
+  }
+
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateGoodDto: UpdateGoodsDto) {
     return this.goodsService.update(+id, updateGoodDto);
