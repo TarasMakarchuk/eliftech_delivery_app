@@ -4,13 +4,13 @@ import { ConfigModule } from '@nestjs/config';
 import { ShopModule } from './shop/shop.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { OrderModule } from './order/order.module';
-import { join } from 'path';
+import { path } from 'app-root-path';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'uploads'),
+      rootPath: `${path}/uploads`,
       serveRoot: '/uploads',
     }),
     GoodsModule,
