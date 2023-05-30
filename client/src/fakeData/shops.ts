@@ -9,7 +9,7 @@ export const shops: IShop[] = [
 	{
 		id: 2,
 		name: 'KFC',
-		img: 'img/shops/kfc/KFC_logo.svg',
+		img: 'img/shops/kfc/KFC-logo.svg',
 	},
 	{
 		id: 3,
