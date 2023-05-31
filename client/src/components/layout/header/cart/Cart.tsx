@@ -40,15 +40,17 @@ export const Cart: FC = () => {
 	});
 
 	const onSubmit = (data: OrderSubmitForm) => {
-		resetCart();
-		reset();
-		setShowNotification('block');
+		if (cart.length) {
+			resetCart();
+			reset();
+			setShowNotification('block');
 
-		return CartService.placeOrder({
-			...data,
-			items: JSON.stringify(goods),
-			total: roundPrice(total),
-		});
+			return CartService.placeOrder({
+				...data,
+				items: JSON.stringify(goods),
+				total: roundPrice(total),
+			});
+		}
 	};
 
 	return (
