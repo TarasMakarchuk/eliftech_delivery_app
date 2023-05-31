@@ -5,7 +5,9 @@ const endpoint = '/order';
 
 export const CartService = {
 	async getOrders() {
-		await axiosClassic.get<IOrder[]>(endpoint);
+		const { data } = await axiosClassic.get<IOrder[]>(endpoint);
+
+		return data;
 	},
 
 	async placeOrder(data: any) {

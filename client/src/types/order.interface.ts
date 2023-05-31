@@ -8,4 +8,5 @@ export interface IOrder {
 	shippingAddress: string;
 	total: number;
 	items: IGoods[];
+	createdAt: Date;
 }
