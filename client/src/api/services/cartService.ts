@@ -1,7 +1,7 @@
 import { axiosClassic } from 'src/api/api';
 import { IOrder } from 'src/types/order.interface';
 
-const endpoint = '/order';
+const endpoint = '/orders';
 
 export const CartService = {
 	async getOrders() {
