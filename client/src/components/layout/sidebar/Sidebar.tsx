@@ -2,11 +2,13 @@ import { FC, useEffect, useState } from 'react';
 import { ShopCard } from './shopCard/ShopCard';
 import { IShop } from 'src/types/shop.interface';
 import { ShopService } from 'src/api/services/shopService';
+import { useCart } from 'src/hooks/useCart';
 import './sidebar.css';
 
 export const Sidebar: FC = () => {
 	const [loading, setLoading] = useState(true);
 	const [shopsData, setShopsData] = useState<IShop[]>([]);
+	const { cart } = useCart();
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -28,7 +30,15 @@ export const Sidebar: FC = () => {
 				<div style={{ fontSize: '28px', paddingTop: '150px' }}>Loading...</div>
 			)}
 			{!loading &&
-				shopsData.map(shop => <ShopCard shop={shop} key={shop.id} />)}
+				shopsData.map(shop => {
+					let isActiveShop = true;
+					if (cart.length) {
+						isActiveShop = cart[0].goods.shopId === shop.id;
+					}
+					return (
+						<ShopCard shop={shop} isActiveShop={isActiveShop} key={shop.id} />
+					);
+				})}
 		</aside>
 	);
 };
