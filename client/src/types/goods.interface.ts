@@ -4,4 +4,6 @@ export interface IGoods {
 	name: string;
 	price: number;
 	img: string;
+	createdAt: Date;
+	updatedAt: Date;
 }

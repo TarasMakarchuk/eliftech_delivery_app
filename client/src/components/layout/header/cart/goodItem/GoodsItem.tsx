@@ -2,19 +2,22 @@ import { FC } from 'react';
 import { IGoods } from 'src/types/goods.interface';
 import { useActions } from 'src/hooks/useActions';
 import { formatToCurrency } from 'src/utils/formatToCurrency';
+import { imageApiPath } from 'src/api/consts/apiPaths';
 import './goodsItem.css';
 
-export const GoodsItem: FC<{ goods: IGoods; quantity: number }> = ({
-	goods,
-	quantity,
-}) => {
+type Props = {
+	goods: IGoods;
+	quantity: number;
+};
+
+export const GoodsItem: FC<Props> = ({ goods, quantity }) => {
 	const { removeFromCart, changeQuantity } = useActions();
 
 	return (
 		<>
 			<div className='good-item-card'>
 				<div className='image-container'>
-					<img src={goods.img} alt={goods.name} />
+					<img src={imageApiPath + goods.img} alt={goods.name} />
 				</div>
 				<div className='good-information-container'>
 					<p className='good-item-title'>{goods.name}</p>
