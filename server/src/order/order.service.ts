@@ -21,6 +21,29 @@ export class OrderService {
     });
   }
 
+  findByEmailAndPhone(email: string, phone: string) {
+    return this.prisma.order.findMany({
+      where: {
+        OR: [
+          {
+            email: {
+              equals: email,
+            },
+          },
+          {
+            phone: {
+              equals: phone,
+            },
+          },
+        ],
+      },
+
+      orderBy: {
+        createdAt: 'desc',
+      },
+    });
+  }
+
   findOne(id: number) {
     return this.prisma.order.findUnique({
       where: { id },

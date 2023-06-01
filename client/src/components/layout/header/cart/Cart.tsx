@@ -34,9 +34,8 @@ export const Cart: FC = () => {
 	const closeNotificationHandler = () => setShowNotification('none');
 
 	const goods = cart.map((goods: ICartItem) => {
-		const { id, shopId, name, price } = goods.goods;
 		const { quantity } = goods;
-		return { id, shopId, name, price, quantity };
+		return { ...goods.goods, quantity };
 	});
 
 	const onSubmit = (data: OrderSubmitForm) => {
