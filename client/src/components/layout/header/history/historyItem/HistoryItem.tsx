@@ -1,44 +1,31 @@
 import { FC } from 'react';
 import { IOrder } from 'src/types/order.interface';
-import { formatToDate } from 'src/utils/formatToDate';
+import { GoodHistoryDetails } from 'src/components/layout/header/history/historyItem/goodsHistoryDetails/GoodsHistoryDetails';
+import { IGoods } from 'src/types/goods.interface';
+import { formatToCurrency } from 'src/utils/formatToCurrency';
 import './historyItem.css';
 
 type Props = {
 	order: IOrder;
-	orderNumber: number;
 };
 
-export const HistoryItem: FC<Props> = ({ order, orderNumber }) => {
-	const orderDetails = String(order.items).replace(
-		/['‘’"“” /\{(.+?)\/(.+?)\}/\[(.+?)\/(.+?)\]]/g,
-		' ',
-	);
+export const HistoryItem: FC<Props> = ({ order }) => {
+	const { items } = order;
+	const orderItems = JSON.parse(String(items));
 
 	return (
 		<div className='history-card'>
-			<div className='order-number'>
-				<p>{orderNumber}.</p>
-			</div>
-			<div className='full-name'>
-				<p>{order.fullName}</p>
-			</div>
-			<div className='email'>
-				<p>{order.email}</p>
-			</div>
-			<div className='phone'>
-				<p>{order.phone}</p>
-			</div>
-			<div className='shipping-address'>
-				<p>{order.shippingAddress}</p>
+			<div>
+				<div className='history-content'>
+					{orderItems.map((items: IGoods) => {
+						return <GoodHistoryDetails items={items} key={items.id} />;
+					})}
+				</div>
 			</div>
 			<div className='order-price'>
-				<p>{order.total}</p>
-			</div>
-			<div className='order-date'>
-				<p>{formatToDate(order.createdAt)}</p>
-			</div>
-			<div className='order-items'>
-				<div className='order-details'>{orderDetails}</div>
+				<p className='history-total-price'>
+					Total price: {formatToCurrency(order.total)}
+				</p>
 			</div>
 		</div>
 	);

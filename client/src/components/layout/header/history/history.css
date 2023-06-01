@@ -11,15 +11,28 @@
 }
 
 .history-header {
+    display: flex;
+    flex-direction: column;
     margin: 10px;
     border-right: 1px solid lightgrey;
-    height: 8vh;
+    height: 40vh;
     width: 100%;
+    justify-content: center;
     align-items: center;
-    display: flex;
     padding-right: 20px;
     padding-left: 20px;
     font-size: 1vw;
+}
+
+.contact-label {
+    text-align: start;
+    align-items: start;
+    font-size: 12px;
+    padding-left: 20px;
+    padding-top: 5px;
+    line-height: 1px;
+    display: flex;
+    flex-direction: column;
 }
 
 .history-item-container {
@@ -27,63 +40,13 @@
     flex-direction: column;
     align-items: center;
     border: 1px solid lightgrey;
-    min-width: 300px;
     height: 80vh;
     padding: 20px;
     border-radius: 7px;
     overflow-y: auto;
 }
 
-.history-header > div > p {
-    border-right: 1px solid lightgrey;
-    padding: 0 10px 0 20px;
-}
-
-.history-number {
-    min-width: 50px;
-    max-width: 500px;
-}
-
-.history-full-name, .history-email, .history-phone, .history-shipping-address   {
-    min-width: 160px;
-    max-width: 160px;
-    word-break: break-all;
-}
-
-.history-shipping-address {
-    min-width: 220px;
-    max-width: 220px;
-    word-break: break-all;
-}
-
-.history-order-price {
-    min-width: 130px;
-    max-width: 130px;
-    word-break: break-all;
-}
-.history-order-date {
-    min-width: 120px;
-    max-width: 120px;
-    word-break: break-all;
-}
-
-.history-order-items {
-    min-width: 500px;
-    word-break: break-all;
-}
-
-.history-item-container::-webkit-scrollbar {
-    width: 5px;
-}
-
-.history-item-container::-webkit-scrollbar {
-    background: #f1f1f1;
-}
-
-.history-item-container::-webkit-scrollbar-thumb {
-    background: lightgrey;
-}
-
-.history-item-container::-webkit-scrollbar-thumb:hover {
-    background: #555;
+.history-submit-form {
+    display: flex;
+    flex-direction: column;
 }

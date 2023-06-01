@@ -1,0 +1,30 @@
+.goods-history-details-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 250px;
+    width: 500px;
+    border: 1px solid lightgrey;
+    margin-right: 40px;
+    margin-bottom: 20px;
+    border-radius: 7px;
+    padding: 20px 60px 20px 20px;
+}
+
+.goods-history-image {
+    height: 200px;
+    width: 250px;
+}
+
+.goods-history-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.goods-history-content > p {
+    padding-bottom: 20px;
+    text-align: center;
+    font-size: 24px;
+}

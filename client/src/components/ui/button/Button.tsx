@@ -17,7 +17,6 @@ export const Button: FC<IButton> = ({ title, onClick }) => {
 					backgroundColor: '#e7e7e7',
 					borderRadius: '7px',
 					marginTop: '10px',
-					marginLeft: '170px',
 					cursor: 'pointer',
 					fontSize: '16px',
 				}}
