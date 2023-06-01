@@ -1,56 +1,69 @@
-import { FC, useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
 import { HistoryItem } from 'src/components/layout/header/history/historyItem/HistoryItem';
 import { CartService } from 'src/api/services/cartService';
 import { IOrder } from 'src/types/order.interface';
+import { useForm } from 'react-hook-form';
+import { Button } from 'src/components/ui/button/Button';
 import './history.css';
 
+type HistoryFormData = {
+	email: string;
+	phone: string;
+};
+
 export const History: FC = () => {
-	const [loading, setLoading] = useState(true);
+	const [loading, setLoading] = useState(false);
 	const [ordersData, setOrdersData] = useState<IOrder[]>([]);
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+		reset,
+	} = useForm<HistoryFormData>();
 
-	let ordersCounter = 0;
-
-	useEffect(() => {
-		const fetchData = async () => {
-			setLoading(true);
-			try {
-				const data = await CartService.getOrders();
-				if (data) setOrdersData(data);
-			} catch (e) {
-				console.log(e);
-			}
+	const onSubmit = async (data: HistoryFormData) => {
+		setLoading(true);
+		const receiveData = await CartService.getOrdersByEmailAndPhone(data);
+		if (receiveData) {
+			setOrdersData(receiveData);
+			reset();
 			setLoading(false);
-		};
-		fetchData();
-	}, []);
+		}
+	};
 
 	return (
 		<div className='history'>
 			<div className='history-header'>
-				<div className='history-number'>
-					<p>Order #</p>
-				</div>
-				<div className='history-full-name'>
-					<p>FullName</p>
-				</div>
-				<div className='history-email'>
-					<p>Email</p>
-				</div>
-				<div className='history-phone'>
-					<p>Phone</p>
-				</div>
-				<div className='history-shipping-address'>
-					<p>Shipping Address</p>
-				</div>
-				<div className='history-order-price'>
-					<p>Total price</p>
-				</div>
-				<div className='history-order-date'>
-					<p>Date</p>
-				</div>
-				<div className='history-order-items'>
-					<p>Order details</p>
-				</div>
+				<form className='history-submit-form' onSubmit={handleSubmit(onSubmit)}>
+					<label className='contact-label'>
+						{errors.email && errors.email.type === 'required' ? (
+							<span style={{ color: 'red' }}>Field is required</span>
+						) : (
+							'Email'
+						)}
+						<input
+							className='input-filed'
+							type='text'
+							{...register('email', { required: true })}
+							placeholder='Email address'
+						/>
+					</label>
+
+					<label className='contact-label'>
+						{errors.email && errors.email.type === 'required' ? (
+							<span style={{ color: 'red' }}>Field is required</span>
+						) : (
+							'Phone number'
+						)}
+						<input
+							className='input-filed'
+							type='text'
+							{...register('phone', { required: true })}
+							placeholder='Phone number'
+						/>
+					</label>
+				</form>
+				<Button title='Submit' onClick={handleSubmit(onSubmit)} />
 			</div>
 			<div className='history-item-container'>
 				{loading && (
@@ -60,14 +73,7 @@ export const History: FC = () => {
 				)}
 				{!loading &&
 					ordersData.map(order => {
-						ordersCounter++;
-						return (
-							<HistoryItem
-								order={order}
-								orderNumber={ordersCounter}
-								key={order.id}
-							/>
-						);
+						return <HistoryItem order={order} key={order.id} />;
 					})}
 			</div>
 		</div>

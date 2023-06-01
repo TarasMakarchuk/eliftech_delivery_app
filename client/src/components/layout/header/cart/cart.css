@@ -79,6 +79,7 @@
     font-size: 22px;
     font-weight: 700;
     color: darkgray;
+    padding-right: 170px;
 }
 
 .order-container::-webkit-scrollbar {

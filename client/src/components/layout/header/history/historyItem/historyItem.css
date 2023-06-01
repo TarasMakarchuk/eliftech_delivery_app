@@ -1,66 +1,36 @@
 .history-card {
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: space-between;
     align-items: center;
     background-color: white;
     border: 1px solid lightgrey;
-    min-width: 170vh;
-    min-height: 10vh;
+    width: 170vh;
+    height: auto;
     border-radius: 7px;
     margin-bottom: 20px;
     font-size: 1vw;
+    padding: 20px 20px 0 20px;
 }
 
-.history-card > div {
-    margin: 10px;
-    border-right: 1px solid lightgrey;
-    height: 8vh;
-    align-items: center;
+.history-content {
     display: flex;
-    padding-right: 20px;
-    padding-left: 20px;
-    overflow: hidden;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: auto;
 }
 
-.history-card > p {
-    border-right: 1px solid lightgrey;
-    padding: 0 10px 0 10px;
-}
-
-.order-number {
-    min-width: 20px;
-}
-
-.full-name, .email, .phone  {
-    min-width: 100px;
-    max-width: 100px;
-    word-break: break-all;
-}
-
-.shipping-address {
-    min-width: 170px;
-    max-width: 170px;
-    word-break: break-all;
-}
-
-.order-price {
-    min-width: 60px;
-    max-width: 60px;
-    word-break: break-all;
-}
-
-.order-date {
-    min-width: 60px;
-    max-width: 60px;
-    word-break: break-all;
+.history-total-price {
+    width: 250px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #ababab;
 }
 
 .order-items {
+    display: flex;
+    flex-direction: row;
     word-break: break-all;
     border-right: none !important;
-}
-
-.order-details {
-    font-size: 12px;
+    height: 50px;
 }
