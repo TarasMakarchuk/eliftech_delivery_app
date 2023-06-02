@@ -1,4 +1,4 @@
-.home-page, button, .app, input {
+.home-page, .app {
   font-family: 'Montserrat', sans-serif;
   color: gray;
   width: auto;
@@ -6,6 +6,12 @@
   background: white;
   margin: 0 10px 0 10px;
   overflow: hidden;
+}
+
+input, button {
+  font-family: 'Montserrat', sans-serif;
+  color: gray;
+  background: white;
 }
 
 .content-wrapper {
