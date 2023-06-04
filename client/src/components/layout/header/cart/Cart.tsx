@@ -1,4 +1,5 @@
 import React, { FC, useState } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
 import { GoodsItem } from './goodItem/GoodsItem';
 import { useForm } from 'react-hook-form';
 import { Button } from 'src/components/ui/button/Button';
@@ -28,6 +29,15 @@ export const Cart: FC = () => {
 	} = useForm<OrderSubmitForm>();
 	const { cart, total } = useCart();
 	const { resetCart } = useActions();
+	const [success, setSuccess] = useState(false);
+
+	const successHandler = () => {
+		setSuccess(true);
+	};
+
+	const expiredHandler = () => {
+		setSuccess(false);
+	};
 
 	const [showNotification, setShowNotification] = useState<string>('none');
 
@@ -39,7 +49,7 @@ export const Cart: FC = () => {
 	});
 
 	const onSubmit = (data: OrderSubmitForm) => {
-		if (cart.length) {
+		if (cart.length && success) {
 			resetCart();
 			reset();
 			setShowNotification('block');
@@ -137,6 +147,13 @@ export const Cart: FC = () => {
 				<span className='total-price'>
 					Total Price: {formatToCurrency(total)}
 				</span>
+				<ReCAPTCHA
+					className='captcha'
+					sitekey={`${process.env.REACT_APP_GOOGLE_CAPTCHA_SECRET_KEY}`}
+					onChange={successHandler}
+					onExpired={expiredHandler}
+					badge='bottomleft'
+				/>
 				<Button title='Place order' onClick={handleSubmit(onSubmit)} />
 			</div>
 		</>
