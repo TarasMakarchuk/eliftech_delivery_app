@@ -19,6 +19,7 @@
 ### Implemented in the project:
 #### - google maps - specifying the address with a marker, displaying the store icon on the map at the address of the store, calculating the distance and time depending on the method of delivery on foot or by car, setting the delivery address via input, depending on the method of delivery on foot or by car;
 #### - captcha;
+#### - placing orders and saving order's data in DB;
 #### - History of orders;
 #### - ordering goods only in one store;
 #### - DB seeding;
