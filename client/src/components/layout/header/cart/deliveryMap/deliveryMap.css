@@ -3,3 +3,61 @@
     height: 100%;
     border-radius: 7px;
 }
+
+.map-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 80px;
+    border: 1px solid lightgrey;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 7px;
+}
+
+.map-form-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 30px;
+    padding-bottom: 10px;
+}
+
+.inputs-group {
+    display: flex;
+    flex-direction: row;
+    height: 30px;
+}
+
+.destination-input {
+    width: 250px;
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+    margin-right: 15px;
+    border: 1px solid lightgrey;
+}
+
+.buttons-group {
+    height: 30px;
+}
+
+.buttons-group > button {
+    height: 27px;
+    margin-right: 8px;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    margin-bottom: 5px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.distance-information-container {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+.distance-information-container > p {
+    margin-right: 20px;
+    font-size: 12px;
+}

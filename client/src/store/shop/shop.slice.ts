@@ -4,7 +4,8 @@ import { IShop } from 'src/types/shop.interface';
 
 const initialState: IShopInitialState = {
 	currentShopId: 1,
-	shops: [],
+	isLoading: false,
+	items: [],
 };
 
 export const shopSlice = createSlice({
@@ -15,8 +16,12 @@ export const shopSlice = createSlice({
 			state.currentShopId = action.payload.shopId;
 		},
 
-		addShops: (state, action: PayloadAction<{ shops: IShop[] }>) => {
-			state.shops.push(...action.payload.shops);
+		setLoadingShops: (state, action: PayloadAction<{ isLoading: boolean }>) => {
+			state.isLoading = action.payload.isLoading;
+		},
+
+		addShops: (state, action: PayloadAction<{ items: IShop[] }>) => {
+			state.items.push(...action.payload.items);
 		},
 	},
 });

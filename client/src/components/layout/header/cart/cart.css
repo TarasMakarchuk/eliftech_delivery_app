@@ -13,10 +13,17 @@
     border-radius: 7px;
 }
 
+.empty-cart {
+    font-size: 24px;
+    color: darkgray;
+    text-align: center;
+    margin-top: 140px;
+}
+
 .delivery-map-container {
     width: 77vh;
-    height: 150px;
-    margin: 0 20px 20px 20px;
+    height: 180px;
+    margin: 0 20px 140px 20px;
     background-color: lightgreen;
     border-radius: 7px;
     border: 1px solid lightgrey;
@@ -58,7 +65,7 @@
     width: 75vh;
     height: 15px;
     padding: 7px;
-    margin: 20px 20px 20px 0;
+    margin: 10px 20px 20px 0;
     outline: none;
     font-size: 16px;
     border-radius: 3px;
@@ -72,6 +79,11 @@
     padding-left: 20px;
     padding-top: 5px;
     line-height: 1px;
+}
+
+.captcha {
+    margin-right: 150px;
+    height: 70px;
 }
 
 .total-price {

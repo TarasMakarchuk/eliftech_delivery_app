@@ -66,6 +66,11 @@ export const History: FC = () => {
 				<Button title='Submit' onClick={handleSubmit(onSubmit)} />
 			</div>
 			<div className='history-item-container'>
+				{!ordersData.length && (
+					<div className='purchase-history-text'>
+						To display your purchase history, enter your email and phone number
+					</div>
+				)}
 				{loading && (
 					<div style={{ fontSize: '28px', paddingTop: '150px' }}>
 						Loading...
