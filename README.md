@@ -75,6 +75,9 @@ ___
 ```bash
 
 # development mode
-$  npx prisma migrate dev --name init
+$  npx prisma migrate dev --name shopAddressAndIcon
+```
+# Heroku deploy mode
+$  npx prisma migrate deploy
 ```
 ___
