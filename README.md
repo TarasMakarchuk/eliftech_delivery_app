@@ -16,6 +16,15 @@
 ### This is an online delivery application like Glovo, which allows you to order and arrange delivery of products to the specified address.
 ### The technologies used are React.js, Redux.js, Nest.js, Prisma, PostgreSQL.
 
+### Implemented in the project:
+#### - google maps - specifying the address with a marker, displaying the store icon on the map at the address of the store, calculating the distance and time depending on the method of delivery on foot or by car, setting the delivery address via input, depending on the method of delivery on foot or by car;
+#### - captcha;
+#### - placing orders and saving order's data in DB;
+#### - History of orders;
+#### - ordering goods only in one store;
+#### - DB seeding;
+#### - deploy Back End part on Heroku and Front End part on Netlify.
+
 ___
 
 `🎨` Design ideas for this project were taken from https://dribbble.com
