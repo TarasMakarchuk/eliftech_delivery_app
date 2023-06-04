@@ -121,6 +121,7 @@ export const Cart: FC = () => {
 					</form>
 				</div>
 				<div className='order-container'>
+					{!cart.length && <div className='empty-cart'>Cart is empty</div>}
 					<div className='goods-information'>
 						{cart.map(goods => (
 							<GoodsItem
