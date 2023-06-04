@@ -6,7 +6,7 @@ export const shops: IShop[] = [
   {
     id: 1,
     name: "McDonald's",
-    img: 'uploads/images/shops/McDonald_s.logo.svg',
+    img: 'uploads/images/shops/McDonald_s-icon.svg',
   },
   {
     id: 2,

@@ -4,7 +4,7 @@ export const shops: IShop[] = [
 	// {
 	// 	id: 1,
 	// 	name: "McDonald's",
-	// 	img: 'img/shops/mcdonlads/McDonald_s.logo.svg',
+	// 	img: 'img/shops/mcdonlads/McDonald_s-icon.svg',
 	// },
 	// {
 	// 	id: 2,

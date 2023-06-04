@@ -15,8 +15,8 @@
 
 .delivery-map-container {
     width: 77vh;
-    height: 150px;
-    margin: 0 20px 20px 20px;
+    height: 180px;
+    margin: 0 20px 140px 20px;
     background-color: lightgreen;
     border-radius: 7px;
     border: 1px solid lightgrey;
@@ -58,7 +58,7 @@
     width: 75vh;
     height: 15px;
     padding: 7px;
-    margin: 20px 20px 20px 0;
+    margin: 10px 20px 20px 0;
     outline: none;
     font-size: 16px;
     border-radius: 3px;
