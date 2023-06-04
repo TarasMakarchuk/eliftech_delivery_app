@@ -81,6 +81,11 @@
     line-height: 1px;
 }
 
+.captcha {
+    margin-right: 150px;
+    height: 70px;
+}
+
 .total-price {
     padding-top: 7px;
     font-size: 22px;
