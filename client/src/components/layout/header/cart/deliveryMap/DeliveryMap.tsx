@@ -16,8 +16,6 @@ import {
 	DeliveryMethodEnum,
 	MapModesEnum,
 } from 'src/components/layout/header/cart/deliveryMap/mapOptions';
-import { shopsAddresses } from 'src/components/layout/header/cart/deliveryMap/shopsAddress';
-import { IShop } from 'src/types/shop.interface';
 import './deliveryMap.css';
 
 export const DeliveryMap: FC = () => {
@@ -33,12 +31,18 @@ export const DeliveryMap: FC = () => {
 	const [duration, setDuration] = useState<string>('');
 	const [shippingMarkerCoordinates, setShippingMarkerCoordinates] =
 		useState<any>(null);
-	const [currentShopData, setCurrentShopData] = useState(shopsAddresses[2]);
+	const [currentShopData, setCurrentShopData] = useState<any>({
+		address: 'вулиця Смілянська, 31, Черкаси, Черкаська область, 18000',
+		icon: 'uploads/images/shops/McDonald_s-icon.svg',
+	});
 	const [shippingAddress, setShippingAddress] = useState<string>('');
 	const [isSelectedShippingAddressMarker, setIsSelectedShippingAddressMarker] =
 		useState(false);
 
 	const [deliveryMethod, setDeliveryMethod] = useState<string>('DRIVING');
+
+	const [currentShopCoordinates, setCurrentShopCoordinates] =
+		useState<Coordinates>({ lat: 1, lng: 1 });
 
 	const { isLoaded } = useJsApiLoader({
 		id: 'google-map-script',
@@ -49,9 +53,7 @@ export const DeliveryMap: FC = () => {
 	/** @type React.MutableRefObject<HTMLInputElement> */
 	const deliveryRef = useRef<any>();
 	/** @type React.MutableRefObject<HTMLInputElement> */
-	const destiantionRef = useRef<any>({
-		value: 'вулиця Хрещатик, 8, Cherkasy, Cherkasy Oblast, Ukraine',
-	});
+	const destinationRef = useRef<any>();
 
 	const mapRef = useRef(undefined);
 
@@ -64,28 +66,20 @@ export const DeliveryMap: FC = () => {
 		mapRef.current = undefined;
 	}, []);
 
-	const currentShop: IShop[] = shop.items.filter(item => {
-		if (shop.items.length) {
-			if (item.id === shop.currentShopId) {
-				return item.name || '';
-			}
-		}
-	});
-
 	useEffect(() => {
-		shopsAddresses.filter(item => {
+		shop.items.filter(item => {
 			if (shop.items.length) {
-				if (item.name === currentShop[0].name) {
+				if (item.id === shop.currentShopId) {
 					setCurrentShopData(item);
 				}
 			}
 		});
-	}, []);
+	}, [0]);
 
 	async function calculateRoute(): Promise<void | null> {
 		if (
 			deliveryRef.current.value === '' ||
-			destiantionRef.current.value === ''
+			destinationRef.current.value === ''
 		) {
 			return;
 		}
@@ -99,7 +93,7 @@ export const DeliveryMap: FC = () => {
 
 		const results: any = await directionsService.route({
 			origin: deliveryRef.current.value,
-			destination: destiantionRef.current.value,
+			destination: destinationRef.current.value,
 			travelMode: currentTravelMode,
 		});
 
@@ -143,13 +137,13 @@ export const DeliveryMap: FC = () => {
 		setDistance('');
 		setDuration('');
 		deliveryRef.current.value = '';
-		destiantionRef.current.value = '';
+		destinationRef.current.value = '';
 	}
 
 	if (isLoaded) {
 		const geocoder = new google.maps.Geocoder();
 
-		if (shippingMarkerCoordinates) {
+		if (shippingMarkerCoordinates && mode === MapModesEnum.SET_MARKER) {
 			geocoder
 				.geocode({
 					location: shippingMarkerCoordinates,
@@ -157,6 +151,24 @@ export const DeliveryMap: FC = () => {
 				.then(response => {
 					if (response.results[0]) {
 						setShippingAddress(response.results[0].formatted_address);
+					}
+				})
+				.catch(e => console.log(e));
+		}
+
+		if (currentShopCoordinates.lat === 1 && mode === MapModesEnum.MOVES) {
+			geocoder
+				.geocode({
+					address: currentShopData.address,
+				})
+				.then(response => {
+					if (response.results[0]) {
+						// @ts-ignore
+						setCurrentShopCoordinates({
+							// @ts-ignore
+							lat: response.results[0].geometry.location.lat(),
+							lng: response.results[0].geometry.location.lng(),
+						});
 					}
 				})
 				.catch(e => console.log(e));
@@ -205,7 +217,7 @@ export const DeliveryMap: FC = () => {
 				/>
 				<ShippingMarker coordinates={shippingMarkerCoordinates} />
 				<DestinationMarker
-					coordinates={currentShopData.coordinates}
+					coordinates={currentShopCoordinates}
 					icon={currentShopData.icon}
 				/>
 				{directionsResponse && (
@@ -237,7 +249,7 @@ export const DeliveryMap: FC = () => {
 								className='destination-input'
 								type='text'
 								placeholder='Destination'
-								ref={destiantionRef}
+								ref={destinationRef}
 								value={currentShopData.address}
 								onChange={() => {}}
 							/>

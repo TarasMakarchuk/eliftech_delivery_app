@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Marker } from '@react-google-maps/api';
+import { imageApiPath } from 'src/api/consts/apiPaths';
 
 interface Props {
 	coordinates: { lat: number; lng: number };
@@ -7,5 +8,5 @@ interface Props {
 }
 
 export const DestinationMarker: FC<Props> = ({ coordinates, icon }) => {
-	return <Marker position={coordinates} icon={icon} />;
+	return <Marker position={coordinates} icon={imageApiPath + icon} />;
 };
